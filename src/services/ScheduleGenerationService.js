@@ -1,4 +1,4 @@
-//https://connecti.store/swagger-ui/index.html#/
+//https://rssol.up.railway.app/swagger-ui/index.html#/
 import api from "./Api.js";
 
 //근무표 생성(날짜 지정X)

@@ -1,4 +1,4 @@
-//https://connecti.store/swagger-ui/index.html#/
+//https://rssol.up.railway.app/swagger-ui/index.html#/
 import api from "./Api.js";
 
 //알림 조회

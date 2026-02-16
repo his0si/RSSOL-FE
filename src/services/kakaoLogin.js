@@ -22,8 +22,8 @@ import api from "./Api.js";
 // 카카오 클라이언트 ID (환경변수에서 가져오거나 직접 설정)
 const KAKAO_CLIENT_ID = import.meta.env.VITE_KAKAO_CLIENT_ID || "";
 
-// 백엔드 주소 (항상 배포 주소 사용)
-const BACKEND_BASE_URL = "https://connecti.store";
+// 백엔드 주소 (환경변수에서 가져옴)
+const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_API_BASE_URL;
 
 // 백엔드 카카오 콜백 경로
 const BACKEND_CALLBACK_PATH = "/api/auth/kakao/callback";
@@ -38,10 +38,10 @@ const getFrontendBaseUrl = () => {
     return "http://localhost:5173";
   }
   // 배포 환경 (Vercel)
-  return "https://rssol.vercel.app";
+  return import.meta.env.VITE_FRONTEND_URL || window.location.origin;
 };
 
-const TOKEN_REFRESH_PATH = "/api/auth/refresh-token";
+const TOKEN_REFRESH_PATH = "auth/refresh-token";
 const ACCESS_TOKEN_KEY = "accessToken";
 const REFRESH_TOKEN_KEY = "refreshToken";
 

@@ -26,6 +26,13 @@ export default defineConfig({
       host: 'localhost',
       protocol: 'ws',
       port: 5173,
-    }
+    },
+    proxy: {
+      '/api': {
+        target: process.env.VITE_API_BASE_URL || 'https://rssol.up.railway.app',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
   },
 });

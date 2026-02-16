@@ -1,15 +1,18 @@
-//https://connecti.store/swagger-ui/index.html#/
 import api from "./Api.js";
 
 //토큰갱신
 export const refreshToken = async () => {
   try {
-    const response = await api.post("auth/refresh-token", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("refreshToken")}`,
+    const response = await api.post(
+      "auth/refresh-token",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("refreshToken")}`,
+        },
+        _skipAuthRefresh: true,
       },
-    });
+    );
     localStorage.setItem("accessToken", response.data.accessToken);
   } catch (error) {
     console.error("토큰갱신 실패:", error);
